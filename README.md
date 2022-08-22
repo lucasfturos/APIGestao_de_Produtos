@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://angular.io/">
-    <img src="aio/src/assets/images/logos/angular/angular.png" alt="angular-logo" width="120px" height="120px"/>
+    <img src="https://raw.githubusercontent.com/angular/angular/main/aio/src/assets/images/logos/angular/angular.png" alt="angular-logo" width="120px" height="120px"/>
   </a>
 </p>
 
