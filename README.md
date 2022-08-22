@@ -18,6 +18,6 @@
 
 <p align="center">
   <a href="https://nodejs.org/en/">
-    <img src="https://nodejs.org/static/images/logo.svg" alt="node.js-logo" />
+    <img src="https://nodejs.org/static/images/logo.svg" alt="node.js-logo" width="120px" height="120px" />
   </a>
 </p>
