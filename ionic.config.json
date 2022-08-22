@@ -1,0 +1,7 @@
+{
+  "name": "APIGestao_de_Produtos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
