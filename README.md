@@ -1,5 +1,5 @@
 ## API de Gestão de Produtos
-  Será feito todo o CRUD e front end em Ionic e Angular
+  Será feito todo o CRUD e front end em NodeJS, Ionic e Angular
 
 ## Front-end
 <p align="center">
