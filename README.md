@@ -1,6 +1,6 @@
 ## API de Gestão de Produtos
   Aplicativo de gestão de produtos em estoque.
-  Situação: Em produção
+  <p>Situação: Em produção</p>
 
 ## Front-end
 <p align="center">
@@ -22,3 +22,7 @@
     <img src="https://nodejs.org/static/images/logo.svg" alt="node.js-logo" width="120px" height="120px" />
   </a>
 </p>
+
+## Será disponível para as plataformas
+
+Android e iOS
