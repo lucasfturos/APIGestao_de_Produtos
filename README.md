@@ -1,5 +1,6 @@
 ## API de Gestão de Produtos
-  Será feito todo o CRUD e front end em NodeJS, Ionic e Angular
+  Aplicativo de gestão de produtos em estoque.
+  Situação: Em produção
 
 ## Front-end
 <p align="center">
