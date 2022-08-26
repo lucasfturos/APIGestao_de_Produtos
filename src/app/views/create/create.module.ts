@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CreateComponent } from './create.component';
+import { createComponent, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -15,6 +16,7 @@ import { CreatePage } from './create.page';
     IonicModule,
     CreatePageRoutingModule
   ],
-  declarations: [CreatePage]
+  declarations: [CreatePage,CreateComponent],
+  entryComponents: [CreateComponent]
 })
 export class CreatePageModule {}
