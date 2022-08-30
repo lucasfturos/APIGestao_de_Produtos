@@ -4,8 +4,18 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button color="light" href="/create"><ion-icon name="add-outline"></ion-icon></ion-fab-button>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="apps-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" href="/create">
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
   <ion-card>
     <ion-item>

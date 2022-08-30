@@ -1,5 +1,5 @@
 import { ViewsComponent } from './views.component';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +8,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./views.page.scss'],
 })
 export class ViewsPage {
-
+  // Use matchMedia to check the user preference
   constructor(private modalController: ModalController) { }
 
   async openModal() {
@@ -16,5 +16,8 @@ export class ViewsPage {
       component: ViewsComponent
     });
     await modal.present();
+  }
+  onChangeColorTheme(event) {
+
   }
 }
