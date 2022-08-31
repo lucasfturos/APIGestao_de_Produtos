@@ -1,12 +1,59 @@
 <ion-header>
   <ion-toolbar>
+    <ion-button href="/" color="light">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
     <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-Tela de cadastro
-  <ion-button color="dark" (click)="generateBarCodeId()" >Camera</ion-button>
-  <p id="idBarCode"></p>
-  <ion-button color="dark" (click)="warningAlert()">Cadastrar</ion-button>
+  <ion-item>
+    <ion-list>
+      <ion-label>
+          Nome do Produto
+       </ion-label>
+      <ion-input placeholder="Ex: Laptop"></ion-input>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-list>
+      <ion-label>
+          Descrição do Produto
+       </ion-label>
+       <ion-textarea
+          cols="50" rows="5"
+          placeholder="Ex: É um computador portátil, leve, projetado para ser transportado e utilizado em diferentes lugares com facilidade."></ion-textarea>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-list>
+      <ion-label>
+          Quantidade do Produto
+       </ion-label>
+       <ion-input type="cc-number" placeholder="0"></ion-input>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-list>
+      <ion-label>
+          Preço do Produto
+       </ion-label>
+       <ion-input type="number" placeholder="Ex: 9,90"></ion-input>
+    </ion-list>
+  </ion-item>
+  <ion-item>
+    <ion-list>
+      <ion-label>
+          Código de Barras do produto
+       </ion-label>
+       <ion-input type="number" placeholder="Ex: 79839282983"></ion-input>
+       <ion-button color="light">
+        <ion-icon name="camera-outline"></ion-icon>
+       </ion-button>
+    </ion-list>
+  </ion-item>
+  <p align="center">
+    <ion-button color="light" (click)="warningAlert()">Cadastrar</ion-button>
+  </p>
 </ion-content>
