@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button href="/" color="light">
-      <ion-icon name="chevron-back-outline"></ion-icon>
-    </ion-button>
     <ion-title>Cadastro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-button href="/" color="light">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+  </ion-fab>
   <ion-item>
     <ion-list>
       <ion-label>
@@ -48,7 +50,7 @@
           Código de Barras do produto
        </ion-label>
        <ion-input type="number" placeholder="Ex: 79839282983"></ion-input>
-       <ion-button color="light">
+       <ion-button color="light" slot="end" class="btn-cam">
         <ion-icon name="camera-outline"></ion-icon>
        </ion-button>
     </ion-list>
