@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.LucasTuros.APIGestao_de_Produtos',
   appName: 'APIGestao_de_Produtos',
   webDir: 'www',
   bundledWebRuntime: false

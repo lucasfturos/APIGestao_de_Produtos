@@ -9,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePage {
 
-  constructor(private alertController: AlertController, private router: Router) { }
+  constructor(
+    private alertController: AlertController,
+    private router: Router,
+    // private barcodeScanner: BarcodeScanner
+  ) { }
+
+  // generateBarCodeId() {
+  //   this.barcodeScanner.scan().then((barcodeData) => {
+  //     alert('BarcodeData = ' + barcodeData.text);
+  //   }, (err) => {
+  //     alert(JSON.stringify(err));
+  //   });
+  // }
+
   async warningAlert() {
     const alert = await this.alertController.create({
       header: 'Sucesso',
