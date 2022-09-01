@@ -1,4 +1,4 @@
-package com.LucasTuros.APIGestao_de_Produtos;
+package com.LucasTuros.Gestao_de_Produtos;
 
 import com.getcapacitor.BridgeActivity;
 

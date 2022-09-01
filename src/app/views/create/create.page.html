@@ -6,9 +6,9 @@
 
 <ion-content>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-button href="/" color="light">
+    <ion-fab-button href="/" color="light">
       <ion-icon name="chevron-back-outline"></ion-icon>
-    </ion-button>
+    </ion-fab-button>
   </ion-fab>
   <ion-item>
     <ion-list>
@@ -49,8 +49,12 @@
       <ion-label>
           Código de Barras do produto
        </ion-label>
-       <ion-input type="number" class="input-cod" placeholder="Ex: 79839282983"></ion-input>
-       <ion-button color="light" slot="end" class="btn-cam">
+       <ion-input
+       type="number"
+       class="input-cod"
+       placeholder="Ex: 79839282983"
+       value=""></ion-input>
+       <ion-button color="light" (click)="startScanning()" class="btn-cam">
         <ion-icon class="icon-cam" name="camera-outline"></ion-icon>
        </ion-button>
     </ion-list>

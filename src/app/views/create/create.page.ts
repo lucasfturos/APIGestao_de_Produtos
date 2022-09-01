@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { AlertController, Platform } from '@ionic/angular';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-create',
@@ -8,20 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create.page.scss'],
 })
 export class CreatePage {
+  qrText: any;
 
   constructor(
     private alertController: AlertController,
     private router: Router,
-    // private barcodeScanner: BarcodeScanner
-  ) { }
+  ) {  }
 
-  // generateBarCodeId() {
-  //   this.barcodeScanner.scan().then((barcodeData) => {
-  //     alert('BarcodeData = ' + barcodeData.text);
-  //   }, (err) => {
-  //     alert(JSON.stringify(err));
-  //   });
-  // }
+  startScanning() {
+    // this.barcodeScanner.scan().then(barcodeData => {
+    //   this.qrText = barcodeData.text;
+    //   console.log('Barcode data', this.qrText);
+    //  }).catch(err => {
+    //      console.log('Error', err);
+    //  });
+  }
 
   async warningAlert() {
     const alert = await this.alertController.create({
