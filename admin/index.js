@@ -114,6 +114,6 @@ app.delete('/:cod_bar', (req, res) => {
 
 app.use(cors());
 app.use(bodyparser.json());
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log("Server running...");
 });
