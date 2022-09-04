@@ -5,11 +5,11 @@ const mysql = require('mysql2');
 require('dotenv').config();
 
 const app = express();
-const hostname = process.env.DB_HOST;
-const username = process.env.DB_USERNAME;
-const password = process.env.DB_PASSWORD;
-const database_name = process.env.DB_DATABASE;
-const port = process.env.DB_PORT;
+const hostname = process.env.DB_HOST,
+  username = process.env.DB_USERNAME,
+  password = process.env.DB_PASSWORD,
+  database_name = process.env.DB_DATABASE,
+  port = process.env.DB_PORT;
 
 // Database connection
 const db = mysql.createConnection({
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
   db.query(query, (err, result) => {
     result ? res.send({
-        message: 'Show all data of table Produtos',
+        message: 'Listar todos os dados',
         data: result
       }) : err ? 0 : console.log('ERROR',err);
   });
@@ -114,6 +114,6 @@ app.delete('/:cod_bar', (req, res) => {
 
 app.use(cors());
 app.use(bodyparser.json());
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Server running...");
 });
