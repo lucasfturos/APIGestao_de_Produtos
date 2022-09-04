@@ -2,16 +2,22 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql2');
+require('dotenv').config();
 
 const app = express();
+const hostname = process.env.DB_HOST;
+const username = process.env.DB_USERNAME;
+const password = process.env.DB_PASSWORD;
+const database_name = process.env.DB_DATABASE;
+const port = process.env.DB_PORT;
 
 // Database connection
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '576291',
-  database: 'APIGestao_de_Produtos',
-  port: 3306
+  host: hostname,
+  user: username,
+  password: password,
+  database: database_name,
+  port: parseInt(port)
 });
 
 // Check connection database
@@ -51,7 +57,7 @@ app.get('/:cod_bar', (req, res) => {
 
 // Create data
 
-app.post('/', (req, res) => {
+app.post('/create', (req, res) => {
   let setCodBar = req.body.cod_bar,
     setNome = req.body.nome,
     setDescricao = req.body.descricao,
