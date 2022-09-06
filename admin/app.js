@@ -1,29 +1,10 @@
-const express = require('express');
-const bodyparser = require('body-parser');
-const cors = require('cors');
-const mysql = require('mysql2');
+const express = require('express'),
+  app = express(),
+  bodyparser = require('body-parser'),
+  cors = require('cors'),
+  db = require('./db/DB');
+
 require('dotenv').config();
-
-const app = express();
-const hostname = process.env.DB_HOST,
-  username = process.env.DB_USERNAME,
-  password = process.env.DB_PASSWORD,
-  database_name = process.env.DB_DATABASE,
-  port = process.env.DB_PORT;
-
-// Database connection
-const db = mysql.createConnection({
-  host: hostname,
-  user: username,
-  password: password,
-  database: database_name,
-  port: parseInt(port)
-});
-
-// Check connection database
-db.connect(err => {
-  err ? console.log(err) : console.log("Database connect")
-});
 
 // Get all data
 app.get('/', (req, res) => {
@@ -114,6 +95,6 @@ app.delete('/:cod_bar', (req, res) => {
 
 app.use(cors());
 app.use(bodyparser.json());
-app.listen(3000, () => {
+app.listen(process.env.SERVER_PORT, () => {
   console.log("Server running...");
 });
