@@ -1,11 +1,15 @@
 const express = require('express'),
   app = express(),
   cors = require('cors'),
-  db = require('./db/DB');
+  db = require('./db/DB'),
+  bodyparser = require('body-parser');
 
 require('dotenv').config();
 
 app.use(cors());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
+
 // Get all data
 app.get('/', (req, res) => {
   let query = 'select * from Produtos'

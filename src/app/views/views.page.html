@@ -23,11 +23,15 @@
   <ion-card>
     <ion-item>
       <ion-label>Produtos cadastrados</ion-label>
-      <ion-note slot="end">0</ion-note>
+      <ion-note slot="end" *ngFor="let item of listData;let i=index;let last=last">
+        <div *ngIf="last">{{i+1}}</div>
+      </ion-note>
     </ion-item>
     <ion-item>
       <ion-label>Quantidade total</ion-label>
-      <ion-note slot="end">0</ion-note>
+      <ion-note slot="end">
+        <div>0</div>
+      </ion-note>
     </ion-item>
   </ion-card>
   <ion-card *ngFor="let item of listData">
@@ -51,9 +55,11 @@
       <ion-note slot="end">R$: {{item.preco}}</ion-note>
     </ion-item>
     <ion-item>
-      <ion-button color="light" (click)="openModal()"><ion-icon name="expand-outline"></ion-icon></ion-button>
-      <ion-button color="success"><ion-icon name="create-outline"></ion-icon></ion-button>
-      <ion-button color="danger" (click)="deleteData(item.cod_bar, item.nome)"><ion-icon name="close-outline"></ion-icon></ion-button>
+      <ion-button color="light" (click)="openModal()">
+        <ion-icon name="expand-outline"></ion-icon></ion-button>
+      &nbsp;
+      <ion-button [routerLink]="['/create',item.cod_bar]" color="success"><ion-icon name="create-outline"></ion-icon></ion-button>
+      <ion-button color="danger" (click)="warningAlert(item.cod_bar, item.nome)"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-card>
 </ion-content>

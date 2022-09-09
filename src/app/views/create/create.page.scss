@@ -7,10 +7,10 @@ body{
   border-radius: 50%;
   display: inline-flex;
 }
-.input-cod{
+.input-cod, ion-input{
   display: inline-flex;
   position: relative;
-  height: 50px;
+  height: auto;
 }
 
 .error-message{

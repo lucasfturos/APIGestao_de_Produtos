@@ -13,8 +13,8 @@ const routes: Routes = [
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+    path: 'create/:cod_bar',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   },
   {
     path: 'config',

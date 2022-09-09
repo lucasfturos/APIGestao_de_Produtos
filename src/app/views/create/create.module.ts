@@ -1,4 +1,3 @@
-import { CreateComponent } from './create.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +14,6 @@ import { CreatePage } from './create.page';
     ReactiveFormsModule,
     FormsModule
   ],
-  declarations: [CreatePage,CreateComponent],
-  entryComponents: [CreateComponent]
+  declarations: [CreatePage],
 })
 export class CreatePageModule {}

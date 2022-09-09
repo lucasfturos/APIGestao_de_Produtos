@@ -9,13 +9,14 @@ import { APIServiceService } from '../service/apiservice.service';
   styleUrls: ['./views.page.scss'],
 })
 export class ViewsPage implements OnInit{
+
+  listData: any;
+
   constructor(
     private modalController: ModalController,
     private service: APIServiceService,
     private alertController: AlertController,
   ) { }
-
-  listData: any;
 
   ngOnInit(): void {
     this.service.getAllData().subscribe((res) => {
@@ -24,10 +25,10 @@ export class ViewsPage implements OnInit{
     });
   }
 
-  deleteData(cod_bar: any, nome: any) {
+  deleteData(cod_bar: any) {
     this.service.deleteData(cod_bar).subscribe((res) => {
-      this.warningAlert(nome);
-      console.log('delete==>',res);
+      console.log('delete==>', res);
+      window.location.reload();
     });
   }
 
@@ -41,9 +42,9 @@ export class ViewsPage implements OnInit{
 
   }
 
-  async warningAlert(nome: any) {
+  async warningAlert(cod_bar: any, nome: any) {
     const alert = await this.alertController.create({
-      header: 'Excluir Produto: '+nome,
+      header: 'Excluir Produto: '+ nome,
       message: 'Tem certeza que deseja excluir o produto '+ nome,
       buttons: [{
         text: 'Não',
@@ -52,6 +53,9 @@ export class ViewsPage implements OnInit{
       {
         text: 'Sim',
         cssClass: 'alert-button-confirm',
+        handler:() =>  {
+          this.deleteData(cod_bar);
+        }
         },
       ],
     });

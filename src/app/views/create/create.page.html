@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Cadastro</ion-title>
+    <ion-title *ngIf="!getParamCodBar">Cadastro</ion-title>
+    <ion-title *ngIf="getParamCodBar">Editar</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +11,7 @@
       <ion-icon name="chevron-back-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <form [formGroup]="produtoForm" (ngSubmit)="produtoSubmit()">
+  <form [formGroup]="produtoForm">
     <ion-item>
       <ion-list>
         <ion-label>
@@ -80,8 +81,21 @@
       </ion-list>
     </ion-item>
 
-    <p align="center">
-      <ion-button type="submit" color="light">Cadastrar</ion-button>
+    <p align="center" *ngIf="!getParamCodBar">
+      <ion-button
+      type="submit"
+      (click)="produtoSubmit()"
+      color="light">
+        Cadastrar
+      </ion-button>
+    </p>
+    <p align="center" *ngIf="getParamCodBar">
+      <ion-button
+      type="submit"
+      (click)="produtoUpdate()"
+      color="light">
+        Atualizar
+      </ion-button>
     </p>
   </form>
 </ion-content>
