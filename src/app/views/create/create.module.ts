@@ -1,7 +1,7 @@
 import { CreateComponent } from './create.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CreatePageRoutingModule } from './create-routing.module';
 import { CreatePage } from './create.page';
@@ -11,7 +11,9 @@ import { CreatePage } from './create.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CreatePageRoutingModule
+    CreatePageRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [CreatePage,CreateComponent],
   entryComponents: [CreateComponent]

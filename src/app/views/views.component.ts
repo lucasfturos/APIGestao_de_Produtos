@@ -1,6 +1,7 @@
 import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-views',
   templateUrl: './views.component.html',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewsComponent  {
 
-  constructor(private modalController: ModalController) { }
+  constructor(
+    private modalController: ModalController,
+  ) { }
 
   closeModal() {
     this.modalController.dismiss();

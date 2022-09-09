@@ -1,11 +1,11 @@
 const express = require('express'),
   app = express(),
-  bodyparser = require('body-parser'),
   cors = require('cors'),
   db = require('./db/DB');
 
 require('dotenv').config();
 
+app.use(cors());
 // Get all data
 app.get('/', (req, res) => {
   let query = 'select * from Produtos'
@@ -42,8 +42,8 @@ app.post('/create', (req, res) => {
   let setCodBar = req.body.cod_bar,
     setNome = req.body.nome,
     setDescricao = req.body.descricao,
-    setQuantidade = req.body.quantidade,
-    setPreco = req.body.preco;
+    setQuantidade = parseInt(req.body.quantidade),
+    setPreco = parseFloat(req.body.preco);
 
   let query = `insert into Produtos (cod_bar, nome, descricao, quantidade, preco) value
     ('${setCodBar}','${setNome}','${setDescricao}','${setQuantidade}','${setPreco}')`;
@@ -93,8 +93,6 @@ app.delete('/:cod_bar', (req, res) => {
   });
 });
 
-app.use(cors());
-app.use(bodyparser.json());
 app.listen(process.env.SERVER_PORT, () => {
   console.log("Server running...");
 });

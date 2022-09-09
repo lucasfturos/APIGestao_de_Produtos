@@ -1,15 +1,35 @@
 import { ViewsComponent } from './views.component';
-import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { AlertController, ModalController } from '@ionic/angular';
+import { APIServiceService } from '../service/apiservice.service';
 
 @Component({
   selector: 'app-views',
   templateUrl: './views.page.html',
   styleUrls: ['./views.page.scss'],
 })
-export class ViewsPage {
-  // Use matchMedia to check the user preference
-  constructor(private modalController: ModalController) { }
+export class ViewsPage implements OnInit{
+  constructor(
+    private modalController: ModalController,
+    private service: APIServiceService,
+    private alertController: AlertController,
+  ) { }
+
+  listData: any;
+
+  ngOnInit(): void {
+    this.service.getAllData().subscribe((res) => {
+      console.log(res, 'res==>');
+      this.listData = res.data;
+    });
+  }
+
+  deleteData(cod_bar: any, nome: any) {
+    this.service.deleteData(cod_bar).subscribe((res) => {
+      this.warningAlert(nome);
+      console.log('delete==>',res);
+    });
+  }
 
   async openModal() {
     const modal = await this.modalController.create({
@@ -19,5 +39,22 @@ export class ViewsPage {
   }
   onChangeColorTheme(event) {
 
+  }
+
+  async warningAlert(nome: any) {
+    const alert = await this.alertController.create({
+      header: 'Excluir Produto: '+nome,
+      message: 'Tem certeza que deseja excluir o produto '+ nome,
+      buttons: [{
+        text: 'Não',
+        cssClass: 'alert-button-cancel',
+      },
+      {
+        text: 'Sim',
+        cssClass: 'alert-button-confirm',
+        },
+      ],
+    });
+    await alert.present();
   }
 }

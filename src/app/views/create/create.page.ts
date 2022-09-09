@@ -1,6 +1,9 @@
 import { Router } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { APIServiceService } from '../../service/apiservice.service';
+
 
 @Component({
   selector: 'app-create',
@@ -9,10 +12,19 @@ import { Component } from '@angular/core';
 })
 export class CreatePage {
   qrText: any;
+  isSubmitted = false;
+  produtoForm = new FormGroup({
+    'nome': new FormControl('',Validators.required),
+    'descricao': new FormControl('',Validators.required),
+    'quantidade': new FormControl('',Validators.required),
+    'preco': new FormControl('',Validators.required),
+    'cod_bar':new FormControl('',Validators.required)
+  });
 
   constructor(
     private alertController: AlertController,
     private router: Router,
+    private service: APIServiceService
   ) {  }
 
   startScanning() {
@@ -24,11 +36,28 @@ export class CreatePage {
     //  });
   }
 
-  async warningAlert() {
+  produtoSubmit() {
+    this.isSubmitted = true;
+    if (!this.produtoForm.valid) {
+      console.log(this.errorControl);
+      return false;
+    } else {
+      console.log(this.produtoForm.value);
+      this.service.createData(this.produtoForm.value).subscribe((res) => {
+        console.log('res==>', res);
+        this.produtoForm.reset();
+      });
+      this.successAlert();
+    }
+  }
+  get errorControl() {
+    return this.produtoForm.controls;
+  }
+
+  async successAlert() {
     const alert = await this.alertController.create({
       header: 'Sucesso',
-      subHeader: 'Cadastro de Produto',
-      message: 'Cadastro de produto realizado com sucesso',
+      message: 'Cadastro do produto foi realizado com sucesso',
       buttons: [{
         text: 'OK',
         handler: () => {
@@ -36,7 +65,6 @@ export class CreatePage {
         }
       }],
     });
-
     await alert.present();
   }
 

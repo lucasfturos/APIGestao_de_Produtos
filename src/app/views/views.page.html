@@ -30,30 +30,30 @@
       <ion-note slot="end">0</ion-note>
     </ion-item>
   </ion-card>
-  <ion-card>
+  <ion-card *ngFor="let item of listData">
     <ion-item>
       <ion-label>
-        <h3>Nescau</h3>
+        <h3>{{item.nome}}</h3>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label>
         <h3>Descrição</h3>
-        <p>Achocolatado em pó, sabor chocolate</p>
+        <p>{{item.descricao}}</p>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label><h3> Quantidade</h3> </ion-label>
-      <ion-note slot="end">0</ion-note>
+      <ion-note slot="end">{{item.quantidade}}</ion-note>
     </ion-item>
     <ion-item>
       <ion-label><h3> Preço</h3> </ion-label>
-      <ion-note slot="end">R$: 0</ion-note>
+      <ion-note slot="end">R$: {{item.preco}}</ion-note>
     </ion-item>
     <ion-item>
       <ion-button color="light" (click)="openModal()"><ion-icon name="expand-outline"></ion-icon></ion-button>
       <ion-button color="success"><ion-icon name="create-outline"></ion-icon></ion-button>
-      <ion-button color="danger"><ion-icon name="close-outline"></ion-icon></ion-button>
+      <ion-button color="danger" (click)="deleteData(item.cod_bar, item.nome)"><ion-icon name="close-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-card>
 </ion-content>
