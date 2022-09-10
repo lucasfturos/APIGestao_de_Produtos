@@ -32,9 +32,11 @@ export class ViewsPage implements OnInit{
     });
   }
 
-  async openModal() {
+  async openModal(cod_bar: any) {
+    let cods_bar;
     const modal = await this.modalController.create({
-      component: ViewsComponent
+      component: ViewsComponent,
+      componentProps: {cods_bar: cod_bar},
     });
     await modal.present();
   }

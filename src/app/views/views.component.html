@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card *ngFor="let item">
+  <ion-card *ngFor="let item of listData">
     <ion-card-header>
       <ion-card-title><h3>{{item.nome}}</h3></ion-card-title>
     </ion-card-header>
@@ -24,6 +24,10 @@
       <ion-card-content>
         <ion-card-title><h2>Preço</h2></ion-card-title>
         <ion-card-subtitle>R$: {{item.preco}}</ion-card-subtitle>
+      </ion-card-content>
+      <ion-card-content>
+        <ion-card-title><h2>Código de barras</h2></ion-card-title>
+        <ion-card-subtitle>{{item.cod_bar}}</ion-card-subtitle>
       </ion-card-content>
     </ion-footer>
   </ion-card>

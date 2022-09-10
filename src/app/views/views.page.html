@@ -55,7 +55,7 @@
       <ion-note slot="end">R$: {{item.preco}}</ion-note>
     </ion-item>
     <ion-item>
-      <ion-button color="light" (click)="openModal()">
+      <ion-button color="light" (click)="openModal(item.cod_bar)">
         <ion-icon name="expand-outline"></ion-icon></ion-button>
       &nbsp;
       <ion-button [routerLink]="['/create',item.cod_bar]" color="success"><ion-icon name="create-outline"></ion-icon></ion-button>
