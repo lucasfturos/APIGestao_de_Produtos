@@ -27,6 +27,6 @@
 
 <p align="center">
   <a href="https://www.android.com/">
-    <img src="https://www.android.com/intl/pt-BR_br/" alt="android-logo" />
+    <img src="https://source.android.com/static/docs/setup/images/Android_symbol_green_RGB.png" alt="android-logo" />
   </a>
 </p>
