@@ -4,13 +4,13 @@
 
 ## Front-end
 <p align="center">
-  <a href="https://ionicframework.com/">
+  <a href="https://ionicframework.com/" target="_blank">
     <img alt="Ionic" src="https://github.com/ionic-team/ionic-framework/blob/main/.github/assets/logo.png?raw=true" width="60" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://angular.io/">
+  <a href="https://angular.io/" target="_blank">
     <img src="https://raw.githubusercontent.com/angular/angular/main/aio/src/assets/images/logos/angular/angular.png" alt="angular-logo" width="120px" height="120px"/>
   </a>
 </p>
@@ -18,7 +18,7 @@
 ## Back-end
 
 <p align="center">
-  <a href="https://nodejs.org/en/">
+  <a href="https://nodejs.org/en/" target="_blank">
     <img src="https://nodejs.org/static/images/logo.svg" alt="node.js-logo" width="120px" height="120px" />
   </a>
 </p>
