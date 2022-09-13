@@ -23,6 +23,10 @@
   </a>
 </p>
 
-## Será disponível para as plataformas
+## Será disponível para a plataforma
 
-Android e iOS
+<p align="center">
+  <a href="https://www.android.com/">
+    <img src="https://www.android.com/intl/pt-BR_br/" alt="android-logo" />
+  </a>
+</p>
