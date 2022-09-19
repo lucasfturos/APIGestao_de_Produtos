@@ -42,7 +42,7 @@
         <ion-label>
             Quantidade do Produto
         </ion-label>
-        <ion-input type="cc-number" formControlName="quantidade" placeholder="0"></ion-input>
+        <ion-input type="number" formControlName="quantidade" placeholder="0"></ion-input>
         <span class="error-message"
           *ngIf="isSubmitted && errorControl.quantidade.errors?.required">Quantidade é obrigatória
         </span>

@@ -1,7 +1,7 @@
 const express = require('express'),
   app = express(),
   cors = require('cors'),
-  db = require('./db/DB'),
+  db = require('./config/db'),
   bodyparser = require('body-parser');
 
 require('dotenv').config();
