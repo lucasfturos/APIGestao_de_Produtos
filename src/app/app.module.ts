@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
         RouteReuseStrategy,
       useClass: IonicRouteStrategy
     },
-    APIServiceService
+    APIServiceService,
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

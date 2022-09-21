@@ -64,9 +64,10 @@
     <ion-item>
       <ion-list>
         <ion-label>
-            Código de Barras do produto
+            Código de Barras
         </ion-label>
         <ion-input
+        *ngIf="!result"
         type="number"
         class="input-cod"
         placeholder="Ex: 79839282983"
@@ -75,9 +76,11 @@
         <span class="error-message"
           *ngIf="isSubmitted && errorControl.cod_bar.errors?.required">Código de barras é obrigatório
         </span><br>
-        <ion-button color="light" (click)="startScanning()" class="btn-cam">
-          <ion-icon class="icon-cam" name="camera-outline"></ion-icon>
-        </ion-button>
+          <ion-button color="light" (click)="startScanning()" class="btn-cam">
+            <ion-icon class="icon-cam" name="camera-outline"></ion-icon>
+          </ion-button>
+          <p *ngIf="result">Resultado da câmera:</p>
+          <p *ngIf="result && !scanActive">{{result}}</p>
       </ion-list>
     </ion-item>
 
