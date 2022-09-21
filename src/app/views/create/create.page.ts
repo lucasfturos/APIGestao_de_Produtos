@@ -58,11 +58,11 @@ export class CreatePage implements OnInit, AfterViewInit, OnDestroy{
   async startScanning() {
     const root = document.querySelector(':root') as HTMLElement;
     const allowed = await this.checkPermissionCam();
+    document.querySelector('body').classList.add('scanner-active');
     if (allowed) {
       this.scanActive = true;
       const result = await BarcodeScanner.startScan();
       console.log('Resultado do scan', result);
-      document.querySelector('body').classList.add('scanner-active');
       if (result.hasContent){
         this.result = result.content;
         this.scanActive = false;

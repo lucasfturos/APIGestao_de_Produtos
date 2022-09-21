@@ -76,11 +76,17 @@
         <span class="error-message"
           *ngIf="isSubmitted && errorControl.cod_bar.errors?.required">Código de barras é obrigatório
         </span><br>
-          <ion-button color="light" (click)="startScanning()" class="btn-cam">
+          <ion-button color="light" (click)="startScanning()" [hidden]="scanActive" class="btn-cam">
             <ion-icon class="icon-cam" name="camera-outline"></ion-icon>
           </ion-button>
           <p *ngIf="result">Resultado da câmera:</p>
           <p *ngIf="result && !scanActive">{{result}}</p>
+          <div class="scanner-active" >
+
+          </div>
+          <ion-button color="light" (click)="stopScanning()" [hidden]="!scanActive" class="btn-cam">
+            <ion-icon class="icon-cam" name="camera-outline"></ion-icon>
+          </ion-button>
       </ion-list>
     </ion-item>
 
@@ -102,3 +108,4 @@
     </p>
   </form>
 </ion-content>
+
