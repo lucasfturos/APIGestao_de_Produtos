@@ -32,6 +32,10 @@ export class APIServiceService {
     return this._http.get(`${this.apiUrl}/${cods_bar}`);
   }
 
+  getNome_Produto(nome_produto: any) {
+    let nomes_produto = nome_produto;
+    return this._http.get(`${this.apiUrl}/${nomes_produto}`);
+  }
   // Deleta dados
   deleteData(cod_bar: any): Observable<any>{
     let cods_bar = cod_bar;

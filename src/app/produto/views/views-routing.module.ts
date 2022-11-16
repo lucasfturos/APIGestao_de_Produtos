@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'config',
-    loadChildren: () => import('./config/config.module').then( m => m.ConfigPageModule)
+    loadChildren: () => import('../../config/config.module').then( m => m.ConfigPageModule)
   }
 ];
 

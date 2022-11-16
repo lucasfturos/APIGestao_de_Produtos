@@ -5,7 +5,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="scanner-active">
+<ion-content>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button href="/" color="light">
       <ion-icon name="chevron-back-outline"></ion-icon>
@@ -73,7 +73,21 @@
         </span>
       </ion-list>
     </ion-item>
-
+    <ion-item>
+      <ion-list>
+        <ion-label> Código de Barras</ion-label>
+        <ion-input
+          type="number"
+          formControlName="cod_bar"
+          placeholder="0"
+        ></ion-input>
+        <span
+          class="error-message"
+          *ngIf="isSubmitted && errorControl.cod_bar.errors?.required"
+          >Código de Barras é obrigatória
+        </span>
+      </ion-list>
+    </ion-item>
     <p align="center" *ngIf="!getParamCodBar">
       <ion-button type="submit" (click)="produtoSubmit()" color="light">
         Cadastrar

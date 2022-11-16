@@ -11,6 +11,8 @@ import { APIServiceService } from '../service/apiservice.service';
 export class ViewsPage implements OnInit{
 
   listData: any;
+  search_produto: string;
+
 
   constructor(
     private modalController: ModalController,

@@ -16,13 +16,13 @@ app.get('/', (req, res) => {
 
   db.query(query, (err, result) => {
     result ? res.send({
-        message: 'Listar todos os dados',
-        data: result
-      }) : err ? 0 : console.log('ERROR',err);
+      message: 'Listar todos os dados',
+      data: result
+    }) : err ? 0 : console.log('ERROR', err);
   });
 });
 
-// Get single data
+// Get single data code bar
 
 app.get('/:cod_bar', (req, res) => {
   let getCodBar = req.params.cod_bar;
@@ -90,7 +90,7 @@ app.delete('/:cod_bar', (req, res) => {
   let getCodBar = req.params.cod_bar;
   let query = `delete from Produtos where cod_bar = ${getCodBar}`;
   db.query(query, (result, err) => {
-    err ? 0: console.log('ERROR', err);
+    err ? 0 : console.log('ERROR', err);
     res.send({
       message: 'Produto foi excluído com sucesso',
     });
