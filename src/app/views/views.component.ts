@@ -28,5 +28,4 @@ export class ViewsComponent implements OnInit{
     this.modalController.dismiss();
   }
 
-  showModal(){}
 }

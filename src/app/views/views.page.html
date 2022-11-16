@@ -20,46 +20,74 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+
   <ion-card>
     <ion-item>
       <ion-label>Produtos cadastrados</ion-label>
-      <ion-note slot="end" *ngFor="let item of listData;let i=index;let last=last">
-        <div *ngIf="last">{{i+1}}</div>
+      <ion-note
+        slot="end"
+        *ngFor="let item of listData;let i=index;let last=last"
+      >
+        <div *ngIf="last">{{i+1 || 0}}</div>
       </ion-note>
     </ion-item>
     <ion-item>
-      <ion-label>Quantidade total</ion-label>
-      <ion-note slot="end">
-        <div>0</div>
-      </ion-note>
+      <ion-list>
+        <ion-label> Buscar Produto </ion-label>
+        <ion-input placeholder="Ex: Laptop"></ion-input>
+      </ion-list>
+      <ion-button color="light" slot="end" class="button-search">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
     </ion-item>
   </ion-card>
-  <ion-card *ngFor="let item of listData">
-    <ion-item>
-      <ion-label>
-        <h3>{{item.nome}}</h3>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>
-        <h3>Descrição</h3>
-        <p>{{item.descricao}}</p>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label><h3> Quantidade</h3> </ion-label>
-      <ion-note slot="end">{{item.quantidade}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label><h3> Preço</h3> </ion-label>
-      <ion-note slot="end">R$: {{item.preco}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-button color="light" (click)="openModal(item.cod_bar)">
-        <ion-icon name="expand-outline"></ion-icon></ion-button>
+
+  <ion-item-sliding *ngFor="let item of listData">
+    <ion-card>
       &nbsp;
-      <ion-button [routerLink]="['/create',item.cod_bar]" color="success"><ion-icon name="create-outline"></ion-icon></ion-button>
-      <ion-button color="danger" (click)="warningAlert(item.cod_bar, item.nome)"><ion-icon name="close-outline"></ion-icon></ion-button>
-    </ion-item>
-  </ion-card>
+      <ion-item-options side="start">
+        <ion-item-option
+          [routerLink]="['/create',item.cod_bar]"
+          color="success"
+        >
+          <ion-icon name="create-outline" style="font-size: 20px"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+      <ion-list>
+        <ion-item>
+          <ion-label>
+            <h3>{{item.nome}}</h3>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h3>Descrição</h3>
+            <p>{{item.descricao}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label><h3>Quantidade</h3> </ion-label>
+          <ion-note slot="end">{{item.quantidade}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label><h3>Preço</h3> </ion-label>
+          <ion-note slot="end">R$: {{item.preco}}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-button color="light" (click)="openModal(item.cod_bar)">
+            <ion-icon name="expand-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+      &nbsp;
+      <ion-item-options side="end">
+        <ion-item-option
+          color="danger"
+          (click)="warningAlert(item.cod_bar, item.nome)"
+        >
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-card>
+  </ion-item-sliding>
 </ion-content>

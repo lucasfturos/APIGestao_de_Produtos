@@ -40,9 +40,6 @@ export class ViewsPage implements OnInit{
     });
     await modal.present();
   }
-  onChangeColorTheme(event) {
-
-  }
 
   async warningAlert(cod_bar: any, nome: any) {
     const alert = await this.alertController.create({

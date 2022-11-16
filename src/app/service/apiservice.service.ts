@@ -11,7 +11,7 @@ export class APIServiceService {
 
   // Conecta com o back-end node js
 
-  apiUrl = 'http://localhost:3000';
+  apiUrl = 'http://192.168.1.6:3000';
 
   // Pega todos os dados
 

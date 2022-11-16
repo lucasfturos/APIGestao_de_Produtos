@@ -1,20 +1,17 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { APIServiceService } from '../../service/apiservice.service';
-import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
-export class CreatePage implements OnInit, AfterViewInit, OnDestroy{
-  result: any;
-  isSubmitted = false;
+export class CreatePage implements OnInit{
   getParamCodBar: any;
-  scanActive = false;
+  isSubmitted: any;
 
   produtoForm = new FormGroup({
     'nome': new FormControl('',Validators.required),
@@ -28,18 +25,9 @@ export class CreatePage implements OnInit, AfterViewInit, OnDestroy{
     private alertController: AlertController,
     private router: Router,
     private activeRouter: ActivatedRoute,
-    private service: APIServiceService
+    private service: APIServiceService,
   ) {  }
 
-  ngAfterViewInit() {
-    BarcodeScanner.prepare();
-  }
-
-  ngOnDestroy() {
-    const root = document.querySelector(':root') as HTMLElement;
-    BarcodeScanner.stopScan();
-    document.querySelector('body').classList.remove('scanner-active');
-  }
 
   ngOnInit(): void {
     this.getParamCodBar = this.activeRouter.snapshot.paramMap.get('cod_bar');
@@ -50,62 +38,11 @@ export class CreatePage implements OnInit, AfterViewInit, OnDestroy{
         'descricao': res.data[0].descricao,
         'quantidade': res.data[0].quantidade,
         'preco': res.data[0].preco,
-        'cod_bar': res.data[0].cod_bar,
+        'cod_bar': res.data[0].cod_bar
       });
     });
   }
 
-  async startScanning() {
-    const root = document.querySelector(':root') as HTMLElement;
-    const allowed = await this.checkPermissionCam();
-    document.querySelector('body').classList.add('scanner-active');
-    if (allowed) {
-      this.scanActive = true;
-      const result = await BarcodeScanner.startScan();
-      console.log('Resultado do scan', result);
-      if (result.hasContent){
-        this.result = result.content;
-        this.scanActive = false;
-
-      }
-    }
-  }
-
-  stopScanning() {
-    BarcodeScanner.stopScan();
-    this.scanActive = false;
-  }
-
-  async checkPermissionCam() {
-    return new Promise(async (resolve, reject) => {
-      const status = await BarcodeScanner.checkPermission({ force: true });
-      console.log('Check de permissao', status);
-      if (status.granted) {
-        resolve(true);
-      } else if (status.denied) {
-        const alert = await this.alertController.create({
-          header: 'Permissão Negada',
-          message: 'Por favor, permita o acesso a câmera pelas configurações do APP',
-          buttons: [{
-            text: 'Não',
-            cssClass: 'alert-button-cancel',
-          },
-          {
-            text: 'Abrir configurações',
-            cssClass: 'alert-button-confirm',
-            handler:() =>  {
-              resolve(false);
-              BarcodeScanner.openAppSettings();
-            }
-            },
-          ],
-        });
-        await alert.present();
-      } else {
-        resolve(false);
-      }
-    });
-  }
 
   // Criar produto
   produtoSubmit() {
